@@ -15,7 +15,8 @@
  * 再C组件中直接使用$attr获取，非prop中定义的值，有不包括style、class等属性
  * C组件直接一个使用this.$emit('handleClick') 来控制父级组件的值
  */
-import listenersChild from '@/components/listenersChild.vue'
+  import listenersChild from '@/components/listenersChild.vue'
+  import { mininx } from "../../mininx/mininx.js"
   export default {
   name: 'listeners',
   components: { listenersChild },
@@ -27,22 +28,21 @@ import listenersChild from '@/components/listenersChild.vue'
     };
   },
   computed: {},
+  mixins: [ mininx ],
   watch: {},
   methods: {
     update() {
-      console.log('update')
       this.name = "测试"
     },
     handleClick() {
-      console.log('handleClick')
       this.listeners = true
     }
   },
   created() {
-
+    this.hello('listeners')
   },
   mounted() {
-
+    
   },
 }
 </script>

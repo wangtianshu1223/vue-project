@@ -3,14 +3,15 @@ import VueRouter from "vue-router";
 
 // const Home =  () => import('@/views/Home.vue')
 const Listeners =  () => import('@/views/listeners/index.vue')
+const Mininx =  () => import('@/views/mininx/index.vue')
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/",
-    name: "Listeners",
-    component: Listeners
+    name: "Mininx",
+    component: Mininx
   },
   {
     path: "/listeners",
@@ -21,7 +22,9 @@ const routes = [
 
 const router = new VueRouter({
   mode: "history",
-  base: process.env.BASE_URL,
+  base: process.env.NODE_ENV === 'production'
+  ? '/production-sub-path/'
+  : '/wts',
   routes
 });
 
